@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacto</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function nombre(e)
+        {
+            //var evento = elEvento || window.event;
+            var key = e.keyCode || e.which;
+            //alert("Código de la tecla apretada " + e.keyCode);
+
+            if(key >= 65 && key <= 90 || key == 8 || key == 37 || key == 39 || key == 32 || key == 46)
+                return true;
+            else
+                return false;
+        }
+        function telefono(e)
+        {
+            var key = e.keyCode || e.which;
+
+            if(key >= 48 && key <= 57 || key == 8 || key == 37 || key == 39 || key == 46)
+                return true;
+            else
+                return false;
+        }
+        function maxChar(e)
+        {
+            var caracteres = document.getElementById("texto").value;
+            
+            if(caracteres.length <= 100)
+            {
+                document.getElementById("comentario").innerHTML = "Puedes escribir hasta " + (100 - caracteres.length) + " caracteres dicionales";
+                return true;        
+            }
+            else
+                return false;
+        }
+
+    </script>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">HooliAgenda</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="agenda.html">Agenda</a></li>
+                <li class="active"><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                Nombre:
+                <input type="text" class="form-control" onkeydown="return nombre(event)">
+            </div>
+            <div class="form-group">
+                Teléfono:
+                <input type="text" class="form-control" onkeydown="return telefono(event)">
+            </div>
+            <div class="form-group">
+                Comentario:
+                <label id="comentario">Máximo 100 caracteres</label><br>
+                <textarea id="texto" cols="30" rows="5" class="form-control" onkeydown="maxChar(event)"onkeypress="return maxChar(event)"></textarea>
+            </div>
+            <button class="btn btn-default">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

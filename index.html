@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/javiscript.js"></script>
+</head>
+<body onload="checkCookie()">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">HooliAgenda</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        Identificate
+        <!--/////////////////////////// EVENTO  DE  RATÓN  /////////////////////-->
+        <input type="text" id="username" onmousemove="username()" ondblclick="checkCookie()">
+        <br>
+        <br>
+        <label id="val" onmousemove="username()"></label>
+    </div>
+</body>
+</html>

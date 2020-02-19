@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/javiscript.js"></script>
+    <style>
+        .val {
+            color: red;
+            display: none;
+        }
+        #confirm, #editFoto, #addButon{
+            display: none;
+        }
+    </style>
+</head>
+<body onload="init()">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">HooliAgenda</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="titul"></h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3" style="border: 1px solid black;">
+                <img src="images/user.png" alt="img" width="100%" id="img">
+            </div>
+            <div class="col-sm-9">
+                <form>
+                    <div class="form-group">
+                        Nombre
+                        <input type="text" class="form-control" id="Name" onkeydown="return keyNombre(event)">
+                        <div class="val" id="valNombre">Sólo letras y espacio.</div>
+                        <div class="val" id="sinNombre">Campo requerido.</div>
+                    </div>
+                    <div class="form-group">
+                        Email
+                        <input type="text" class="form-control" id="Email">
+                        <div class="val" id="valEmail">Email no válido.</div>
+                    </div>
+                    <div class="form-group">
+                        DNI
+                        <input type="text" class="form-control" id="DNI">
+                        <div class="val" id="valDNI">El DNI debe de estar formado por 8 numeros y con letra mayúscula.</div>
+                    </div>
+                    <div class="form-group">
+                        Teléfono
+                        <input type="text" class="form-control" id="Tlf" onkeydown="return keyTelefono(event)">
+                        <div class="val" id="valTlf">Sólo numeros.</div>
+                        <div class="val" id="sinTlf">Campo requerido.</div>
+                    </div>
+                    <div class="form-group">
+                        Ciudad
+                        <input type="text" class="form-control" id="City">
+                        <div class="val" id="valCity">Campo requerido.</div>
+                    </div>
+                    <div class="form-group">
+                        Código postal
+                        <input type="text" class="form-control" id="Postcode">
+                        <div class="val" id="valPostcode">Código Postal formado por 5 números.</div>
+                    </div>
+
+                    <div class="form-group" id="editFoto">
+                        Foto (URL)
+                        <input type="text" class="form-control" id="foto">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <label id="cuantos"></label>
+                    </div>
+
+                    <div class="form-group text-center" id="addButon">
+                        <input type="button" value="Guardar" class="btn" onclick="add()">
+                        <input type="button" value="Cerrar" class="btn" onclick="tanca()">
+                    </div>
+
+                    <div class="form-group text-center" id="moverse">
+                        <input type="button" value="Primero" class="btn" id="primero" onclick="primer()"> 
+                        <input type="button" value="Anterior" class="btn" id="antes" onclick="atras()"> 
+                        <input type="button" value="siguiente" class="btn" id="next" onclick="alante()"> 
+                        <input type="button" value="Ultimo" class="btn" id="ultimo" onclick="ultim()">
+                    </div>
+                    <br>
+                    <div class="form-group text-center" id="butones">
+                        <input type="button" value="Añadir" class="btn" id="anyiadir" onclick="verAdd()">
+                        <input type="button" value="Editar" class="btn" id="editar" onclick="EnableEdit()">
+                        <input type="button" value="Confirmar" class="btn" id="confirm" onclick="confirmaEdit()">
+                    </div>
+                    <div class="form-group text-center" id="deleteButon">
+                        <input type="button" value="Eliminar" class="btn btn-danger" id="borrar" onclick="del()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function init()
+    {
+        apiUser();
+        setTimeout('primer()', 1000);
+    }
+</script>
+</html>
